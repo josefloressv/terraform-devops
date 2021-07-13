@@ -1,1 +1,4 @@
-terraform-devops/aws/scripts/packer-key.pub
+packer-key.pub
+.DS_Store
+.terraform*
+*.tfstate*

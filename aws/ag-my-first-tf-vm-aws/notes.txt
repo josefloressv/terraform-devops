@@ -1,0 +1,19 @@
+Hands-on
+https://learn.acloud.guru/handson/49bfc3d3-626d-4c01-a164-9c53c93f9d91
+In this lab we follow the Terraform workflow — Write > Plan > Apply — and use the AWS Terraform provider and the provided AMI and subnet ID arguments to spin up a VM (EC2 instance) in AWS.
+
+Image: Amazon Linux 2 AMI (HVM), del marketplace de Amazon
+La subnet ya está creada por defecto
+
+# Resources id /home/cloud_user/resources_id.txt
+ami: ami-0aeeebd8d2ab47354
+subnet_id: subnet-0baa583d0d00f49f1
+
+# comandos
+terraform init
+terraform valitate
+terraform fmt
+terraform plan
+terraform apply
+
+# check the console in aws
