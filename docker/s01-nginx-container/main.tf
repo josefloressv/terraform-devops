@@ -24,3 +24,4 @@ resource "docker_container" "nginxcontainer" {
 }
 
 #doc https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs
+#ref https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
