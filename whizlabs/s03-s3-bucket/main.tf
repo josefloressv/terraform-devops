@@ -16,3 +16,5 @@ output "bucket_arn" {
   value       = aws_s3_bucket.mybucket01.arn
   description = "ARN of the S3 bucket"
 }
+
+# docs https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
