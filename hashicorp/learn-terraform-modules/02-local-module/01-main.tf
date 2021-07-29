@@ -17,3 +17,6 @@ module "website_s3_bucket" {
 
   tags = var.bucket_tags
 }
+
+# References
+# https://learn.hashicorp.com/tutorials/terraform/module-create?in=terraform/modules
