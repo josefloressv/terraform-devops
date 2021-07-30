@@ -1,7 +1,7 @@
 terraform {
     backend "s3" {
         bucket = "whizlabs-tf-2021"
-        key    = "terraform.tfstate"
+        key    = "team-01/terraform.tfstate"
         region = "us-east-1"
     }
 }
@@ -15,4 +15,9 @@ resource "aws_instance" "web" {
     instance_type = "t2.micro"
 }
 
+output "instance_id" {
+    value = "${aws_instance.web.id}"
+}
+
 # combine Labs: s03-s3-bucket
+# prepared for: s12-using-remote-state
