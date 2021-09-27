@@ -1,0 +1,149 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_acm_certificate.jenkins-lb-https (expand)" [label = "aws_acm_certificate.jenkins-lb-https", shape = "box"]
+		"[root] aws_acm_certificate_validation.cert (expand)" [label = "aws_acm_certificate_validation.cert", shape = "box"]
+		"[root] aws_instance.jenkins-master (expand)" [label = "aws_instance.jenkins-master", shape = "box"]
+		"[root] aws_instance.jenkins-worker-oregon (expand)" [label = "aws_instance.jenkins-worker-oregon", shape = "box"]
+		"[root] aws_internet_gateway.igw (expand)" [label = "aws_internet_gateway.igw", shape = "box"]
+		"[root] aws_internet_gateway.igw-oregon (expand)" [label = "aws_internet_gateway.igw-oregon", shape = "box"]
+		"[root] aws_key_pair.master-key (expand)" [label = "aws_key_pair.master-key", shape = "box"]
+		"[root] aws_key_pair.worker-key (expand)" [label = "aws_key_pair.worker-key", shape = "box"]
+		"[root] aws_lb.application-lb (expand)" [label = "aws_lb.application-lb", shape = "box"]
+		"[root] aws_lb_listener.jenkins-listener-http (expand)" [label = "aws_lb_listener.jenkins-listener-http", shape = "box"]
+		"[root] aws_lb_listener.jenkins-listener-https (expand)" [label = "aws_lb_listener.jenkins-listener-https", shape = "box"]
+		"[root] aws_lb_target_group.app-lb-tg (expand)" [label = "aws_lb_target_group.app-lb-tg", shape = "box"]
+		"[root] aws_lb_target_group_attachment.jenkins-master-attach (expand)" [label = "aws_lb_target_group_attachment.jenkins-master-attach", shape = "box"]
+		"[root] aws_main_route_table_association.set-master-default-rt-assoc (expand)" [label = "aws_main_route_table_association.set-master-default-rt-assoc", shape = "box"]
+		"[root] aws_main_route_table_association.set-worker-default-rt-assoc (expand)" [label = "aws_main_route_table_association.set-worker-default-rt-assoc", shape = "box"]
+		"[root] aws_route53_record.cert_validation (expand)" [label = "aws_route53_record.cert_validation", shape = "box"]
+		"[root] aws_route53_record.jenkins (expand)" [label = "aws_route53_record.jenkins", shape = "box"]
+		"[root] aws_route_table.internet_route (expand)" [label = "aws_route_table.internet_route", shape = "box"]
+		"[root] aws_route_table.internet_route_oregon (expand)" [label = "aws_route_table.internet_route_oregon", shape = "box"]
+		"[root] aws_security_group.jenkins-sg (expand)" [label = "aws_security_group.jenkins-sg", shape = "box"]
+		"[root] aws_security_group.jenkins-sg-oregon (expand)" [label = "aws_security_group.jenkins-sg-oregon", shape = "box"]
+		"[root] aws_security_group.lb-sg (expand)" [label = "aws_security_group.lb-sg", shape = "box"]
+		"[root] aws_subnet.subnet_1 (expand)" [label = "aws_subnet.subnet_1", shape = "box"]
+		"[root] aws_subnet.subnet_1_oregon (expand)" [label = "aws_subnet.subnet_1_oregon", shape = "box"]
+		"[root] aws_subnet.subnet_2 (expand)" [label = "aws_subnet.subnet_2", shape = "box"]
+		"[root] aws_vpc.vpc_master (expand)" [label = "aws_vpc.vpc_master", shape = "box"]
+		"[root] aws_vpc.vpc_master_oregon (expand)" [label = "aws_vpc.vpc_master_oregon", shape = "box"]
+		"[root] aws_vpc_peering_connection.useast1-uswest2 (expand)" [label = "aws_vpc_peering_connection.useast1-uswest2", shape = "box"]
+		"[root] aws_vpc_peering_connection_accepter.accept_peering (expand)" [label = "aws_vpc_peering_connection_accepter.accept_peering", shape = "box"]
+		"[root] data.aws_availability_zones.azs (expand)" [label = "data.aws_availability_zones.azs", shape = "box"]
+		"[root] data.aws_route53_zone.dns (expand)" [label = "data.aws_route53_zone.dns", shape = "box"]
+		"[root] data.aws_ssm_parameter.linuxAmi (expand)" [label = "data.aws_ssm_parameter.linuxAmi", shape = "box"]
+		"[root] data.aws_ssm_parameter.linuxAmiOregon (expand)" [label = "data.aws_ssm_parameter.linuxAmiOregon", shape = "box"]
+		"[root] output.Jenkins-Main-Node-Private-IP" [label = "output.Jenkins-Main-Node-Private-IP", shape = "note"]
+		"[root] output.Jenkins-Main-Node-Public-IP" [label = "output.Jenkins-Main-Node-Public-IP", shape = "note"]
+		"[root] output.Jenkins-Worker-Private-IPs" [label = "output.Jenkins-Worker-Private-IPs", shape = "note"]
+		"[root] output.Jenkins-Worker-Public-IPs" [label = "output.Jenkins-Worker-Public-IPs", shape = "note"]
+		"[root] output.LB-DNS-NAME" [label = "output.LB-DNS-NAME", shape = "note"]
+		"[root] output.jenkins_master_node" [label = "output.jenkins_master_node", shape = "note"]
+		"[root] output.jenkins_worker_nodes" [label = "output.jenkins_worker_nodes", shape = "note"]
+		"[root] output.url" [label = "output.url", shape = "note"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master" [label = "provider[\"registry.terraform.io/hashicorp/aws\"].region-master", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-worker" [label = "provider[\"registry.terraform.io/hashicorp/aws\"].region-worker", shape = "diamond"]
+		"[root] var.aws_cli_profile" [label = "var.aws_cli_profile", shape = "note"]
+		"[root] var.dns-name" [label = "var.dns-name", shape = "note"]
+		"[root] var.external_ip" [label = "var.external_ip", shape = "note"]
+		"[root] var.instance-type" [label = "var.instance-type", shape = "note"]
+		"[root] var.region-master" [label = "var.region-master", shape = "note"]
+		"[root] var.region-worker" [label = "var.region-worker", shape = "note"]
+		"[root] var.webserver-port" [label = "var.webserver-port", shape = "note"]
+		"[root] var.workers-count" [label = "var.workers-count", shape = "note"]
+		"[root] aws_acm_certificate.jenkins-lb-https (expand)" -> "[root] data.aws_route53_zone.dns (expand)"
+		"[root] aws_acm_certificate_validation.cert (expand)" -> "[root] aws_route53_record.cert_validation (expand)"
+		"[root] aws_instance.jenkins-master (expand)" -> "[root] aws_key_pair.master-key (expand)"
+		"[root] aws_instance.jenkins-master (expand)" -> "[root] aws_main_route_table_association.set-master-default-rt-assoc (expand)"
+		"[root] aws_instance.jenkins-master (expand)" -> "[root] aws_security_group.jenkins-sg (expand)"
+		"[root] aws_instance.jenkins-master (expand)" -> "[root] aws_subnet.subnet_1 (expand)"
+		"[root] aws_instance.jenkins-master (expand)" -> "[root] data.aws_ssm_parameter.linuxAmi (expand)"
+		"[root] aws_instance.jenkins-master (expand)" -> "[root] var.aws_cli_profile"
+		"[root] aws_instance.jenkins-master (expand)" -> "[root] var.instance-type"
+		"[root] aws_instance.jenkins-worker-oregon (expand)" -> "[root] aws_instance.jenkins-master (expand)"
+		"[root] aws_instance.jenkins-worker-oregon (expand)" -> "[root] aws_key_pair.worker-key (expand)"
+		"[root] aws_instance.jenkins-worker-oregon (expand)" -> "[root] aws_main_route_table_association.set-worker-default-rt-assoc (expand)"
+		"[root] aws_instance.jenkins-worker-oregon (expand)" -> "[root] aws_security_group.jenkins-sg-oregon (expand)"
+		"[root] aws_instance.jenkins-worker-oregon (expand)" -> "[root] aws_subnet.subnet_1_oregon (expand)"
+		"[root] aws_instance.jenkins-worker-oregon (expand)" -> "[root] data.aws_ssm_parameter.linuxAmiOregon (expand)"
+		"[root] aws_instance.jenkins-worker-oregon (expand)" -> "[root] var.workers-count"
+		"[root] aws_internet_gateway.igw (expand)" -> "[root] aws_vpc.vpc_master (expand)"
+		"[root] aws_internet_gateway.igw-oregon (expand)" -> "[root] aws_vpc.vpc_master_oregon (expand)"
+		"[root] aws_key_pair.master-key (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master"
+		"[root] aws_key_pair.worker-key (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-worker"
+		"[root] aws_lb.application-lb (expand)" -> "[root] aws_security_group.lb-sg (expand)"
+		"[root] aws_lb.application-lb (expand)" -> "[root] aws_subnet.subnet_1 (expand)"
+		"[root] aws_lb.application-lb (expand)" -> "[root] aws_subnet.subnet_2 (expand)"
+		"[root] aws_lb_listener.jenkins-listener-http (expand)" -> "[root] aws_lb.application-lb (expand)"
+		"[root] aws_lb_listener.jenkins-listener-https (expand)" -> "[root] aws_acm_certificate_validation.cert (expand)"
+		"[root] aws_lb_listener.jenkins-listener-https (expand)" -> "[root] aws_lb.application-lb (expand)"
+		"[root] aws_lb_listener.jenkins-listener-https (expand)" -> "[root] aws_lb_target_group.app-lb-tg (expand)"
+		"[root] aws_lb_target_group.app-lb-tg (expand)" -> "[root] aws_vpc.vpc_master (expand)"
+		"[root] aws_lb_target_group.app-lb-tg (expand)" -> "[root] var.webserver-port"
+		"[root] aws_lb_target_group_attachment.jenkins-master-attach (expand)" -> "[root] aws_instance.jenkins-master (expand)"
+		"[root] aws_lb_target_group_attachment.jenkins-master-attach (expand)" -> "[root] aws_lb_target_group.app-lb-tg (expand)"
+		"[root] aws_main_route_table_association.set-master-default-rt-assoc (expand)" -> "[root] aws_route_table.internet_route (expand)"
+		"[root] aws_main_route_table_association.set-worker-default-rt-assoc (expand)" -> "[root] aws_route_table.internet_route_oregon (expand)"
+		"[root] aws_route53_record.cert_validation (expand)" -> "[root] aws_acm_certificate.jenkins-lb-https (expand)"
+		"[root] aws_route53_record.jenkins (expand)" -> "[root] aws_lb.application-lb (expand)"
+		"[root] aws_route53_record.jenkins (expand)" -> "[root] data.aws_route53_zone.dns (expand)"
+		"[root] aws_route_table.internet_route (expand)" -> "[root] aws_internet_gateway.igw (expand)"
+		"[root] aws_route_table.internet_route (expand)" -> "[root] aws_vpc_peering_connection.useast1-uswest2 (expand)"
+		"[root] aws_route_table.internet_route_oregon (expand)" -> "[root] aws_internet_gateway.igw-oregon (expand)"
+		"[root] aws_route_table.internet_route_oregon (expand)" -> "[root] aws_vpc_peering_connection.useast1-uswest2 (expand)"
+		"[root] aws_security_group.jenkins-sg (expand)" -> "[root] aws_security_group.lb-sg (expand)"
+		"[root] aws_security_group.jenkins-sg (expand)" -> "[root] var.external_ip"
+		"[root] aws_security_group.jenkins-sg-oregon (expand)" -> "[root] aws_vpc.vpc_master_oregon (expand)"
+		"[root] aws_security_group.jenkins-sg-oregon (expand)" -> "[root] var.external_ip"
+		"[root] aws_security_group.lb-sg (expand)" -> "[root] aws_vpc.vpc_master (expand)"
+		"[root] aws_subnet.subnet_1 (expand)" -> "[root] aws_vpc.vpc_master (expand)"
+		"[root] aws_subnet.subnet_1 (expand)" -> "[root] data.aws_availability_zones.azs (expand)"
+		"[root] aws_subnet.subnet_1_oregon (expand)" -> "[root] aws_vpc.vpc_master_oregon (expand)"
+		"[root] aws_subnet.subnet_2 (expand)" -> "[root] aws_vpc.vpc_master (expand)"
+		"[root] aws_subnet.subnet_2 (expand)" -> "[root] data.aws_availability_zones.azs (expand)"
+		"[root] aws_vpc.vpc_master (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master"
+		"[root] aws_vpc.vpc_master_oregon (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-worker"
+		"[root] aws_vpc_peering_connection.useast1-uswest2 (expand)" -> "[root] aws_vpc.vpc_master (expand)"
+		"[root] aws_vpc_peering_connection.useast1-uswest2 (expand)" -> "[root] aws_vpc.vpc_master_oregon (expand)"
+		"[root] aws_vpc_peering_connection_accepter.accept_peering (expand)" -> "[root] aws_vpc_peering_connection.useast1-uswest2 (expand)"
+		"[root] data.aws_availability_zones.azs (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master"
+		"[root] data.aws_route53_zone.dns (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master"
+		"[root] data.aws_route53_zone.dns (expand)" -> "[root] var.dns-name"
+		"[root] data.aws_ssm_parameter.linuxAmi (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master"
+		"[root] data.aws_ssm_parameter.linuxAmiOregon (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-worker"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_lb_listener.jenkins-listener-http (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_lb_listener.jenkins-listener-https (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_lb_target_group_attachment.jenkins-master-attach (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_vpc_peering_connection_accepter.accept_peering (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.Jenkins-Main-Node-Private-IP"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.Jenkins-Main-Node-Public-IP"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.Jenkins-Worker-Private-IPs"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.Jenkins-Worker-Public-IPs"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.LB-DNS-NAME"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.jenkins_master_node"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.jenkins_worker_nodes"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] output.url"
+		"[root] output.Jenkins-Main-Node-Private-IP" -> "[root] aws_instance.jenkins-master (expand)"
+		"[root] output.Jenkins-Main-Node-Public-IP" -> "[root] aws_instance.jenkins-master (expand)"
+		"[root] output.Jenkins-Worker-Private-IPs" -> "[root] aws_instance.jenkins-worker-oregon (expand)"
+		"[root] output.Jenkins-Worker-Public-IPs" -> "[root] aws_instance.jenkins-worker-oregon (expand)"
+		"[root] output.LB-DNS-NAME" -> "[root] aws_lb.application-lb (expand)"
+		"[root] output.jenkins_master_node" -> "[root] aws_instance.jenkins-master (expand)"
+		"[root] output.jenkins_worker_nodes" -> "[root] aws_instance.jenkins-worker-oregon (expand)"
+		"[root] output.url" -> "[root] aws_route53_record.jenkins (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master (close)" -> "[root] aws_lb_listener.jenkins-listener-http (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master (close)" -> "[root] aws_lb_listener.jenkins-listener-https (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master (close)" -> "[root] aws_lb_target_group_attachment.jenkins-master-attach (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master (close)" -> "[root] aws_route53_record.jenkins (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master" -> "[root] var.region-master"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-worker (close)" -> "[root] aws_instance.jenkins-worker-oregon (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-worker (close)" -> "[root] aws_vpc_peering_connection_accepter.accept_peering (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-worker" -> "[root] var.region-worker"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-master (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].region-worker (close)"
+	}
+}
+
